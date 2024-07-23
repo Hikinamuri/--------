@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: './src/index.html',
+    template: path.resolve(__dirname, 'index.html'),
   }),
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css',
@@ -31,7 +31,7 @@ module.exports = {
     mode,
     target,
     plugins,
-    entry: './src/index.js',
+    entry: path.join(__dirname, 'src', 'main.tsx'),
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -40,38 +40,44 @@ module.exports = {
 
     devServer: {
         hot: true,
-      },
-
-  module: {
-    rules: [
-      { test: /\.(html)$/, use: ['html-loader'] },
-      {
-        test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
-        type: mode === 'production' ? 'asset' : 'asset/resource',
+        historyApiFallback: true,
     },
-    {
-        test: /\.(woff2?|eot|ttf|otf)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(s[ac]|c)ss$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
+
+    module: {
+      rules: [
+        { test: /\.(html)$/, use: ['html-loader'] },
+        {
+          test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+          type: mode === 'production' ? 'asset' : 'asset/resource',
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+        },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
           },
         },
-      },
-    ],
-  }
-}
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'ts-loader',
+          },
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    },
+};
