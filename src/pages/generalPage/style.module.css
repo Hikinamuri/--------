@@ -181,3 +181,22 @@ h1 {
     justify-content: center;
     gap: 28px;
 }
+
+.content__third_block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 60px;
+    align-items: center;
+    background-color: #F6F8FA;
+}
+
+.content__third_block__carousel {
+    width: 80%;
+    padding-bottom: 35px;
+}
+
+.content__third_block__carousel ul{
+    position: relative !important;
+    bottom: 0 !important;
+}

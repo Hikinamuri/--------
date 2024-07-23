@@ -6,6 +6,7 @@ import secure from '../../assets/img/howItsWork/secure.svg';
 import money from '../../assets/img/howItsWork/money-bags.svg';
 import man from '../../assets/img/man.png';
 
+import { Carousel } from '../../compponents/carousel/index';
 
 const styles = require('./style.module.css');
 
@@ -70,6 +71,15 @@ export const GeneralPage = () => {
                         </span>
                     </div>
                     <img src={man} alt="Мужчина" />
+                </div>
+                <div className={styles.content__third_block}>
+                    <h1>Отзывы</h1>
+                    <div className={styles.content__third_block__carousel}>
+                        <Carousel />
+                    </div>
+                </div>
+                <div className={styles.content__fourth_block}>
+
                 </div>
             </div>
         </>
