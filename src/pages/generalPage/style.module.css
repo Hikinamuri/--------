@@ -197,3 +197,14 @@ h1 {
 .content__fourth_block {
     width: 100%;
 }
+
+.content__fifth_block {
+    padding: 60px 0;
+    justify-content: center;
+    width: 100%;
+    background-color: #F6F8FA;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    box-sizing: border-box; 
+}

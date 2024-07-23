@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames';

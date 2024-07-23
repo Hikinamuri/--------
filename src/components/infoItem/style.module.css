@@ -1,0 +1,20 @@
+.item_name {
+    display: flex;
+    flex-direction: column;
+    width: calc(35% - 20px);
+    box-sizing: border-box;
+    text-align: left;
+    height: fit-content;
+
+    h2 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    span {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+    }
+}
