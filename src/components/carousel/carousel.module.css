@@ -5,6 +5,7 @@
     border-radius: 8px;
     padding: 18px;
     box-shadow: 14px 0px 24px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .slide img {
