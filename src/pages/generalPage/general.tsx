@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import navBarLogo from '../../assets/img/logo.svg';
+import waiting from '../../assets/img/howItsWork/waiting.svg';
+import delivery from '../../assets/img/howItsWork/delivery-truck.svg';
+import secure from '../../assets/img/howItsWork/secure.svg';
+import money from '../../assets/img/howItsWork/money-bags.svg';
+
+
 
 const styles = require('./style.module.css');
 
@@ -28,8 +34,32 @@ export const GeneralPage = () => {
                     <button>Проще простого</button>
                 </div>
             </div>
-            <div className={styles.mainInfo}>
-
+            <div className={styles.content}>
+                <div className={styles.content__how_its_work}>
+                    <h1>Как это работает</h1>
+                    <div className={styles.content__how_its_work__images}>
+                        <div>
+                            <img src={waiting} alt="waiting" />
+                            <p>Прочитайте задание внимательно</p>
+                            <span>думаю у тебя это не займет больше двух-трех минут</span>
+                        </div>
+                        <div>
+                            <img src={delivery} alt="delivery" />
+                            <p>Изучи весь макет заранее</p>
+                            <span>Подумай как это будет работать на разных разрешениях и при скролле</span>
+                        </div>
+                        <div>
+                            <img src={secure} alt="secure" />
+                            <p>Сделай хорошо</p>
+                            <span>Чтобы мы могли тебе доверить подобные задачи в будущем</span>
+                        </div>
+                        <div>
+                            <img src={money} alt="money" />
+                            <p>Получи предложение</p>
+                            <span>Ну тут все просто, не я придумал правила, но думаю так и будет)))</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );
