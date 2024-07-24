@@ -69,7 +69,7 @@ export const GeneralPage = () => {
                 <div className={styles.general__main_info}>
                     <div>
                         <h1>Говорят, никогда не поздно сменить профессию</h1>
-                        <p>Сделай круто и у тебя получится</p>
+                        <p>Сделай круто тестовое заданеи и у тебя получится</p>
                     </div>
                     <button>Проще простого</button>
                 </div>

@@ -362,6 +362,10 @@ h1 {
 }
 
 @media screen and (max-width: 1720px) {
+    .general__main_info {
+        width: 50%;
+    }
+
     .content__first_block {
         width: 70%
     }
@@ -372,6 +376,10 @@ h1 {
 }
 
 @media screen and (max-width: 1560px) {
+    .general__main_info {
+        width: 60%;
+    }
+
     .content__third_block__carousel {
         width: 80%;
     }
@@ -392,6 +400,14 @@ h1 {
 }
 
 @media screen and (max-width: 1150px) {
+    .general__main_info {
+        width: 70%;
+    }
+
+    .general__navbar {
+        width: 85%;
+    }
+
     .content__first_block {
         width: 95%
     }
@@ -433,6 +449,24 @@ h1 {
 }
 
 @media screen and (max-width: 767px) {
+    .general__main_info {
+        width: 70%;
+
+        div {
+            padding-bottom: 40px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 28px;
+        }
+
+        h1 {
+            font-size: 32px;
+            line-height: 40px;
+        }
+    }
+
     .content__first_block {
         h2 {
             font-size: 24px;
@@ -451,6 +485,23 @@ h1 {
 }
 
 @media screen and (max-width: 375px) {
+    .general__main_info {
+        width: 80%;
+
+        div {
+            padding-bottom: 26px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 28px;
+        }
+
+        h1 {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
 
     .content__first_block__images_div {
         min-width: 288px !important;
