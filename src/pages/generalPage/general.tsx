@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-var-requires */
+import { useState } from 'react';
+
 import navBarLogo from '../../assets/img/logo.svg';
+import general from '../../assets/img/general.svg';
 import waiting from '../../assets/img/howItsWork/waiting.svg';
 import delivery from '../../assets/img/howItsWork/delivery-truck.svg';
 import secure from '../../assets/img/howItsWork/secure.svg';
@@ -14,6 +18,11 @@ const styles = require('./style.module.css');
 
 
 export const GeneralPage = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+    });
+
     const items = [
         {
             ItemName: 'Опрошенных пользовались микрокредитами',
@@ -32,19 +41,29 @@ export const GeneralPage = () => {
             ItemDescription: 'Не могли покрыть внезапные траты свыше 7000 ₽. Доступ к заработанным деньгам помогает отказаться от кредитов и экономить деньги на процентах и штрафах Не могли покрыть внезапные траты свыше 7000 ₽. Доступ к заработанным деньгам помогает отказаться от кредитов и экономить деньги на процентах и штрафах',
         },
     ];
+
+    const handleInputChange = (e: any) => {
+        const { name, value } = e.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
     return (
         <>
             <div className={styles.general}>
+                <img className={styles.general_img} src={general} alt="" />
                 <div className={styles.general__navbar}>
                     <div className={styles.general__navbar_logo}>
                         <img src={navBarLogo} alt="" />
                         <p>testLab</p>
                     </div>
                     <div className={styles.general__navbar__buttons}>
-                        <p>Как это работает</p>
-                        <p>3-й блок</p>
-                        <p>Вопросы и ответы</p>
-                        <p>Форма</p>
+                        <a href='#firstBlock'>Как это работает</a>
+                        <a>3-й блок</a>
+                        <a>Вопросы и ответы</a>
+                        <a>Форма</a>
                     </div>
                 </div>
                 <div className={styles.general__main_info}>
@@ -56,7 +75,7 @@ export const GeneralPage = () => {
                 </div>
             </div>
             <div className={styles.content}>
-                <div className={styles.content__first_block}>
+                <div className={styles.content__first_block} id='firstBlock'>
                     <h1>Как это работает</h1>
                     <div className={styles.content__first_block__images}>
                         <div>
@@ -105,6 +124,32 @@ export const GeneralPage = () => {
                     {items.map((item) => (
                         <InfoItem massItems={item} />
                     ))}
+                </div>
+                <div className={styles.content__sixth_block}>
+                    <h2>Отправь форму</h2>
+                    <div className={styles.content__sixth_block_inputs}>
+                        <input 
+                            className={styles.content__sixth_block__text_input}
+                            placeholder='Имя'
+                            value={formData.name}
+                            onChange={handleInputChange}
+                        />
+                        <input 
+                            className={styles.content__sixth_block__text_input}
+                            placeholder='Телефон'
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className={styles.content__sixth_block_inputs}>
+                        <div className={styles.content__sixth_block__checkbox}>
+                            <input type="checkbox" name="" id="" />
+                            <p>Согласен, отказываюсь</p>
+                        </div>
+                        <div className={styles.content__sixth_block__button}>
+                            <h5>Отправить</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

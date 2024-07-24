@@ -25,6 +25,12 @@ export const Carousel = () => {
                     slidesToShow: 1,
                 }
             },
+            {
+                breakpoint: 1720,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
         ]
     };
 
