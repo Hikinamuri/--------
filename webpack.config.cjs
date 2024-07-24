@@ -6,13 +6,15 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
+
 
 let mode = 'development';
 let target = 'web';
-if (process.env.NODE_ENV === 'production') {
-  mode = 'production';
-  target = 'browserslist';
-}
+// if (mode === 'production') {
+//   mode = 'production';
+//   target = 'browserslist';
+// }
 
 const plugins = [
   new HtmlWebpackPlugin({
@@ -21,6 +23,7 @@ const plugins = [
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css',
   }),
+  new CompressionPlugin()
 ];
 
 if (process.env.SERVE) {
@@ -41,6 +44,12 @@ module.exports = {
     devServer: {
         hot: true,
         historyApiFallback: true,
+    },
+
+    performance: {
+      hints: false,
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000
     },
 
     module: {
