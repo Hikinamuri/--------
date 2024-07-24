@@ -61,9 +61,9 @@ export const GeneralPage = () => {
                     </div>
                     <div className={styles.general__navbar__buttons}>
                         <a href='#firstBlock'>Как это работает</a>
-                        <a>3-й блок</a>
-                        <a>Вопросы и ответы</a>
-                        <a>Форма</a>
+                        <a href='#thirdBlock'>3-й блок</a>
+                        <a href='#fourthBlock'>Вопросы и ответы</a>
+                        <a href='#sixthBlock'>Форма</a>
                     </div>
                 </div>
                 <div className={styles.general__main_info}>
@@ -101,7 +101,7 @@ export const GeneralPage = () => {
                     </div>
                 </div>
                 <div className={styles.content__second_block}>
-                    <div className={styles.content__second_block__info}> 
+                    <div className={styles.content__second_block__info} id='thirdBlock'> 
                         <h1>Круто, ты дошел до третьего блока</h1>
                         <span>
                             63% опрошенных пользовались кредитами из-за того, что не могли покрыть непредвиденные расходы свыше 15 000 ₽.
@@ -117,7 +117,7 @@ export const GeneralPage = () => {
                         <Carousel />
                     </div>
                 </div>
-                <div className={styles.content__fourth_block}>
+                <div className={styles.content__fourth_block} id='fourthBlock'>
                     <Faq />
                 </div>
                 <div className={styles.content__fifth_block}>
@@ -125,7 +125,7 @@ export const GeneralPage = () => {
                         <InfoItem massItems={item} />
                     ))}
                 </div>
-                <div className={styles.content__sixth_block}>
+                <div className={styles.content__sixth_block} id='sixthBlock'>
                     <h2>Отправь форму</h2>
                     <div className={styles.content__sixth_block_inputs}>
                         <input 
@@ -150,6 +150,9 @@ export const GeneralPage = () => {
                             <h5>Отправить</h5>
                         </div>
                     </div>
+                </div>
+                <div className={styles.content__seventh_block}>
+                    <p>© 2021 Лаборатория интернет</p>
                 </div>
             </div>
         </>
