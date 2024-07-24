@@ -199,7 +199,9 @@ export const GeneralPage = () => {
                             Доступ к заработанным деньгам помогает отказаться от кредитов и экономить деньги на процентах и штрафах.
                         </span>
                     </div>
-                    <img src={man} alt="Мужчина" />
+                    <div>
+                        <img src={man} alt="Мужчина" />
+                    </div>
                 </div>
                 <div className={styles.content__third_block}>
                     <h1>Отзывы</h1>

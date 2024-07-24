@@ -312,12 +312,14 @@ h1 {
 
 .content__second_block {
     display: flex;
+    flex-wrap: wrap-reverse;
     width: 60%;
+    gap: 32px;
     text-align: left;
     color: #191C1F;
 
     img {
-        height: 100%;
+        width: 100%;
     }
 
     h1 {
@@ -326,10 +328,14 @@ h1 {
     }
 
     span {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
         line-height: 28px;
         color: #5E646A;
+    }
+
+    div {
+        flex: 1 1 0px;
     }
 }
 
@@ -337,7 +343,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 28px;
+    gap: 18px;
 }
 
 .content__third_block {
@@ -489,12 +495,10 @@ h1 {
         width: 50%;
     }
 
-    .content__first_block {
-        width: 70%
-    }
-
+    .content__first_block, 
+    .content__second_block, 
     .content__third_block__carousel {
-        width: 70%;
+        width: 70%
     }
 }
 
@@ -503,17 +507,16 @@ h1 {
         width: 60%;
     }
 
+    .content__first_block, 
+    .content__second_block, 
     .content__third_block__carousel {
-        width: 80%;
-    }
-
-    .content__first_block {
         width: 80%
     }
 }
 
 @media screen and (max-width: 1350px) {
-    .content__first_block {
+    .content__first_block, 
+    .content__second_block {
         width: 90%
     }
 
@@ -575,6 +578,19 @@ h1 {
     .content__third_block__carousel {
         width: 95%;
     }
+
+    .content__second_block {
+        width: 95%;
+        .content__second_block__info {
+            gap: 15px;
+
+            h1 {
+                white-space: pre;
+                font-size: 20px !important;
+                line-height: 24px;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -615,6 +631,15 @@ h1 {
             font-size: 24px;
             line-height: 32px;
             font-weight: 600;
+        }
+    }
+
+    .content__second_block {
+        width: 90%;
+        text-align: center;
+
+        div {
+            min-width: 350px;
         }
     }
 
