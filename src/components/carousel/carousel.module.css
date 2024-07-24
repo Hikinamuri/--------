@@ -6,6 +6,7 @@
     padding: 18px;
     box-shadow: 14px 0px 24px 0px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    margin-inline: 18px;
 }
 
 .slide img {
@@ -32,7 +33,7 @@
     font-size: 16px;
     line-height: 24px;
     text-align: left;
-    white-space: pre;
+    white-space: normal;
 }
 
 .item_city {
@@ -56,4 +57,12 @@
     color: #191C1F;
     font-size: 14px;
     line-height: 24px;
+}
+
+
+@media screen and (max-width: 380px) {
+    .slide {
+        height: 335px;
+        width: 288px !important;
+    }
 }

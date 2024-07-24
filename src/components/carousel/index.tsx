@@ -20,13 +20,13 @@ export const Carousel = () => {
         dotsClass: `slick-dots ${styles.dots}`,
         responsive: [
             {
-                breakpoint: 1050,
+                breakpoint: 767,
                 settings: {
                     slidesToShow: 1,
                 }
             },
             {
-                breakpoint: 1720,
+                breakpoint: 1350,
                 settings: {
                     slidesToShow: 2,
                 }
