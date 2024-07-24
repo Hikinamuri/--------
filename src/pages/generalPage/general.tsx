@@ -57,7 +57,7 @@ export const GeneralPage = () => {
                 <div className={styles.general__navbar}>
                     <div className={styles.general__navbar_logo}>
                         <img src={navBarLogo} alt="" />
-                        <p>testLab</p>
+                        <h5>testLab</h5>
                     </div>
                     <div className={styles.general__navbar__buttons}>
                         <a href='#firstBlock'>Как это работает</a>
@@ -76,27 +76,35 @@ export const GeneralPage = () => {
             </div>
             <div className={styles.content}>
                 <div className={styles.content__first_block} id='firstBlock'>
-                    <h1>Как это работает</h1>
+                    <h2>Как это работает</h2>
                     <div className={styles.content__first_block__images}>
-                        <div>
+                        <div className={styles.content__first_block__images_div}>
                             <img src={waiting} alt="waiting" />
-                            <p>Прочитайте задание внимательно</p>
-                            <span>думаю у тебя это не займет больше двух-трех минут</span>
+                            <div>
+                                <p>Прочитайте задание внимательно</p>
+                                <span>думаю у тебя это не займет больше двух-трех минут</span>
+                            </div>
                         </div>
-                        <div>
+                        <div className={styles.content__first_block__images_div}>
                             <img src={delivery} alt="delivery" />
-                            <p>Изучи весь макет заранее</p>
-                            <span>Подумай как это будет работать на разных разрешениях и при скролле</span>
+                            <div>
+                                <p>Изучи весь макет заранее</p>
+                                <span>Подумай как это будет работать на разных разрешениях и при скролле</span>
+                            </div>
                         </div>
-                        <div>
+                        <div className={styles.content__first_block__images_div}>
                             <img src={secure} alt="secure" />
-                            <p>Сделай хорошо</p>
-                            <span>Чтобы мы могли тебе доверить подобные задачи в будущем</span>
+                            <div>
+                                <p>Сделай хорошо</p>
+                                <span>Чтобы мы могли тебе доверить подобные задачи в будущем</span>
+                            </div>
                         </div>
-                        <div>
+                        <div className={styles.content__first_block__images_div}>
                             <img src={money} alt="money" />
-                            <p>Получи предложение</p>
-                            <span>Ну тут все просто, не я придумал правила, но думаю так и будет)))</span>
+                            <div>
+                                <p>Получи предложение</p>
+                                <span>Ну тут все просто, не я придумал правила, но думаю так и будет)))</span>
+                            </div>
                         </div>
                     </div>
                 </div>

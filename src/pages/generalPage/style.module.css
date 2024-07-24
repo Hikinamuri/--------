@@ -71,6 +71,13 @@ h1 {
 .general__navbar_logo {
     display: flex;
     user-select: none;
+    gap: 5px;
+}
+
+.general__navbar_logo h5 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 .general__navbar__buttons {
@@ -137,9 +144,12 @@ h1 {
     width: 60%;
     color: #191C1F;
 
-    h1 {
+    h2 {
         font-size: 40px;
         font-weight: 600;
+        white-space: pre;
+        margin: 0;
+        padding: 0;
     }
 
     p {
@@ -157,14 +167,24 @@ h1 {
 .content__first_block__images {
     padding-top: 60px;
     display: flex;
+    flex-wrap: wrap;
     text-align: left;
     justify-content: center;
     width: 100%;
     gap: 32px;
 }
 
-.content__first_block__images div {
-    flex: 1 1 0px; 
+.content__first_block__images_div {
+    flex: 1 1 0px;
+    max-width: 280px;
+    min-width: 230px;
+
+    p {
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        white-space: normal;
+    }
 }
 
 .content__second_block {
@@ -342,6 +362,10 @@ h1 {
 }
 
 @media screen and (max-width: 1720px) {
+    .content__first_block {
+        width: 70%
+    }
+
     .content__third_block__carousel {
         width: 70%;
     }
@@ -351,15 +375,46 @@ h1 {
     .content__third_block__carousel {
         width: 80%;
     }
+
+    .content__first_block {
+        width: 80%
+    }
 }
 
 @media screen and (max-width: 1350px) {
+    .content__first_block {
+        width: 90%
+    }
+
     .content__third_block__carousel {
         width: 70%;
     }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1150px) {
+    .content__first_block {
+        width: 95%
+    }
+
+    .content__first_block__images {
+        padding-top: 42px;
+    }
+
+    .content__first_block__images_div {
+        display: flex;
+        height: 78px;
+        min-width: 349px;
+
+        img {
+            margin-right: 16px;
+            min-width: 56px;
+        }
+
+        p {
+            white-space: pre;
+        }
+    }
+
     .content__third_block__carousel {
         width: 80%;
     }
@@ -378,7 +433,44 @@ h1 {
 }
 
 @media screen and (max-width: 767px) {
+    .content__first_block {
+        h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 600;
+        }
+    }
+
+    .content__first_block__images {
+        padding-top: 26px;
+    }
+
     .content__third_block__carousel {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+
+    .content__first_block__images_div {
+        min-width: 288px !important;
+        /* max-width: 288px; */
+        height: fit-content;
+        align-items: start;
+
+        img {
+            margin-right: 16px;
+            width: 56px;
+        }
+
+        p {
+            width: 200px;
+            white-space: normal;
+        }
+
+        span {
+            width: 200px;
+            white-space: normal;
+        }
     }
 }
