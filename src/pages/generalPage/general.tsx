@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import navBarLogo from '../../assets/img/logo.svg';
 import general from '../../assets/img/general.svg';
@@ -23,6 +23,32 @@ export const GeneralPage = () => {
         phone: '',
     });
 
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+    const toggleMobileMenu = () => {
+        if (isMobileMenuOpen) {
+            setIsMenuVisible(false);
+            setIsMobileMenuOpen(false);
+        } else {
+            setIsMenuVisible(true);
+            setIsMobileMenuOpen(true);
+        }
+    };
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false)
+        setIsMenuVisible(false);
+    };
+
+    const handleInputChange = (e: any) => {
+        const { name, value } = e.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
     const items = [
         {
             ItemName: 'Опрошенных пользовались микрокредитами',
@@ -42,14 +68,36 @@ export const GeneralPage = () => {
         },
     ];
 
-    const handleInputChange = (e: any) => {
-        const { name, value } = e.target;
-        setFormData((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
+    // useEffect(() => {
+        
+    // }, [isMobileMenuOpen]);
 
+    useEffect(() => {
+        if (!isMobileMenuOpen) {
+            const timer = setTimeout(() => setIsMenuVisible(false), 300);
+            return () => clearTimeout(timer);
+        }
+    
+        const handleScroll = () => {
+            if (isMobileMenuOpen) {
+                const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+                
+                document.documentElement.style.scrollBehavior = 'auto';
+                
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'auto'
+                });
+                
+                document.documentElement.style.scrollBehavior = originalScrollBehavior;
+            }
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isMobileMenuOpen]);
+    
     return (
         <>
             <div className={styles.general}>
@@ -65,11 +113,45 @@ export const GeneralPage = () => {
                         <a href='#fourthBlock'>Вопросы и ответы</a>
                         <a href='#sixthBlock'>Форма</a>
                     </div>
+                    <div className={`${styles.hamburger_menu} ${isMobileMenuOpen ? styles.open : ''}`} onClick={toggleMobileMenu}>
+                        <div className={`${styles.icon} ${styles.hamburger}`}>⚌</div>
+                        <div className={`${styles.icon} ${styles.close}`}>⨯</div>
+                    </div>
+                    <div
+                        className={`${styles.mobile_menu} ${isMenuVisible ? (isMobileMenuOpen ? styles.show : styles.hide) : styles.hide}`}
+                    >
+                        <div className={styles.mobile_menu__div}> 
+                            <div className={styles.mobile_menu__logo}>
+                                <img src={navBarLogo} alt="Logo" />
+                                <h5>testLab</h5>
+                            </div>
+                            <div className={`${styles.hamburger_menu} ${isMobileMenuOpen ? styles.open : ''}`} onClick={toggleMobileMenu}>
+                                <div className={`${styles.icon} ${styles.hamburger}`}>⚌</div>
+                                <div className={`${styles.icon} ${styles.close}`}>⨯</div>
+                            </div>
+                        </div>
+                        <div>
+                            <a onClick={closeMobileMenu} href='#firstBlock'>Как это работает</a>
+                            <p className={styles.arrow}></p>
+                        </div>
+                        <div>
+                            <a onClick={closeMobileMenu} href='#thirdBlock'>3-й блок</a>
+                            <p className={styles.arrow}></p>
+                        </div>
+                        <div>
+                            <a onClick={closeMobileMenu}href='#fourthBlock'>Вопросы и ответы</a>
+                            <p className={styles.arrow}></p>
+                        </div>
+                        <div>
+                            <a onClick={closeMobileMenu}href='#sixthBlock'>Форма</a>
+                            <p className={styles.arrow}></p>
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.general__main_info}>
                     <div>
                         <h1>Говорят, никогда не поздно сменить профессию</h1>
-                        <p>Сделай круто тестовое заданеи и у тебя получится</p>
+                        <p>Сделай круто тестовое задание и у тебя получится</p>
                     </div>
                     <button>Проще простого</button>
                 </div>
