@@ -63,7 +63,9 @@ export const Faq = () => {
                         onClick={() => toggleQuestion(index)}
                     >
                         <div className={styles.question}>
-                            {item.question}
+                            <div className={styles.question_description}>
+                                {item.question}
+                            </div>
                             <div className={classNames({ [styles.rotate]: selectedQuestion === index })}>
                                 <p>+</p>
                             </div>

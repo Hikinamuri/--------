@@ -213,9 +213,11 @@ export const GeneralPage = () => {
                     <Faq />
                 </div>
                 <div className={styles.content__fifth_block}>
-                    {items.map((item) => (
-                        <InfoItem massItems={item} />
-                    ))}
+                    <div className={styles.content__fifth_block__infoItems}>
+                        {items.map((item) => (
+                            <InfoItem massItems={item} />
+                        ))}
+                    </div>
                 </div>
                 <div className={styles.content__sixth_block} id='sixthBlock'>
                     <h2>Отправь форму</h2>

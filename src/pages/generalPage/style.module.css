@@ -371,13 +371,19 @@ h1 {
 
 .content__fifth_block {
     padding: 60px 0;
-    justify-content: center;
     width: 100%;
     background-color: #F6F8FA;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.content__fifth_block__infoItems {
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
-    box-sizing: border-box; 
+
 }
 
 .content__sixth_block {
@@ -497,7 +503,8 @@ h1 {
 
     .content__first_block, 
     .content__second_block, 
-    .content__third_block__carousel {
+    .content__third_block__carousel,
+    .content__fifth_block__infoItems {
         width: 70%
     }
 }
@@ -509,17 +516,19 @@ h1 {
 
     .content__first_block, 
     .content__second_block, 
+    .content__fifth_block__infoItems,
     .content__third_block__carousel {
         width: 80%
     }
 }
 
 @media screen and (max-width: 1350px) {
-    .content__first_block, 
+    .content__first_block,
+    .content__fifth_block__infoItems, 
     .content__second_block {
         width: 90%
     }
-
+    
     .content__third_block__carousel {
         width: 70%;
     }

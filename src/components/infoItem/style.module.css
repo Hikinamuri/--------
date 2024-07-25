@@ -1,10 +1,12 @@
 .item_name {
     display: flex;
+    flex: 1 1 0px;
     flex-direction: column;
     width: calc(35% - 20px);
     box-sizing: border-box;
     text-align: left;
     height: fit-content;
+    min-width: 450px;
 
     h2 {
         font-weight: 600;
@@ -16,5 +18,13 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 28px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .item_name {
+        white-space: normal;
+        font-size: 16px;
+        min-width: 300px;
     }
 }
