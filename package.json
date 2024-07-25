@@ -5,14 +5,13 @@
   "type": "module",
   "homepage": "https://hikinamuri.github.io/testJob/",
   "scripts": {
-    "dev": "vite",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "cross-env SERVE=true webpack serve",
     "build": "webpack",
     "build-prod": "webpack --mode=production",
     "clean": "rd /s /q dist",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "react": "^18.3.1",
