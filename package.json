@@ -6,7 +6,8 @@
   "homepage": "https://hikinamuri.github.io/testJob/",
   "scripts": {
     "dev": "vite",
-    "start": "cross-env SERVE=true webpack serve && gh-pages -d build",
+    "deploy": "gh-pages -d build",
+    "start": "cross-env SERVE=true webpack serve",
     "build": "webpack",
     "build-prod": "webpack --mode=production",
     "clean": "rd /s /q dist",
