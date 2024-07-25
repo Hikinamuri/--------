@@ -504,7 +504,8 @@ h1 {
     .content__first_block, 
     .content__second_block, 
     .content__third_block__carousel,
-    .content__fifth_block__infoItems {
+    .content__fifth_block__infoItems,
+    .content__sixth_block {
         width: 70%
     }
 }
@@ -517,7 +518,8 @@ h1 {
     .content__first_block, 
     .content__second_block, 
     .content__fifth_block__infoItems,
-    .content__third_block__carousel {
+    .content__third_block__carousel,
+    .content__sixth_block {
         width: 80%
     }
 }
@@ -525,7 +527,8 @@ h1 {
 @media screen and (max-width: 1350px) {
     .content__first_block,
     .content__fifth_block__infoItems, 
-    .content__second_block {
+    .content__second_block,
+    .content__sixth_block {
         width: 90%
     }
     
@@ -606,6 +609,10 @@ h1 {
     .general__navbar__buttons {
         display: none;
     }
+
+    .content__sixth_block {
+        width: 100%;
+    }
     
     .hamburger_menu {
         display: block;
@@ -659,12 +666,35 @@ h1 {
     .content__third_block__carousel {
         width: 100%;
     }
+
 }
 
 @media screen and (max-width: 600px) {
     .mobile_menu {
         display: flex;
         width: 70%;
+    }
+
+    .content__sixth_block  {
+        width: 90%;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .content__sixth_block_inputs {
+        flex-direction: column !important;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    .content__sixth_block_inputs {
+        flex-direction: column !important;
+
+        div {
+            width: 100%;
+        }
     }
 }
 
@@ -763,4 +793,6 @@ h1 {
             white-space: normal;
         }
     }
+
+    
 }
