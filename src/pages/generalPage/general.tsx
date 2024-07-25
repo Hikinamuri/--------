@@ -18,13 +18,18 @@ const styles = require('./style.module.css');
 
 
 export const GeneralPage = () => {
+    const [isChecked, setIsChecked] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
     });
-
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isMenuVisible, setIsMenuVisible] = useState(false);
+    const [errors, setErrors] = useState({
+        name: '',
+        phone: '',
+        checkbox: '',
+    });
 
     const toggleMobileMenu = () => {
         if (isMobileMenuOpen) {
@@ -43,10 +48,76 @@ export const GeneralPage = () => {
 
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
-        setFormData((prevState) => ({
-            ...prevState,
+        setFormData((prevFormData) => ({
+            ...prevFormData,
             [name]: value,
         }));
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: '',
+        }));
+    };
+    const handleCheckboxChange = () => {
+        setIsChecked(!isChecked);
+        setErrors({
+            ...errors,
+            checkbox: '',
+        });
+    };
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        let valid = true;
+        const num = formData.phone
+            .replace(/[()\-+\s]/g, '');
+        const newErrors = { name: '', phone: '', checkbox: '' };
+
+        if (!formData.name) {
+            newErrors.name = 'Имя обязательно';
+            valid = false;
+        }
+
+        if (!((num.startsWith('8') || num.startsWith('7')) && 
+            num.length === 11 &&
+            (!isNaN(Number(num))))) {
+            newErrors.phone = 'Некорректный номер телефона';
+            valid = false;
+        }
+
+        if (!formData.phone) {
+            newErrors.phone = 'Телефон обязателен';
+            valid = false;
+        }
+
+        if (!isChecked) {
+            newErrors.checkbox = 'Вы должны согласиться с условиями';
+            valid = false;
+        }
+
+        setErrors(newErrors);
+
+        if (!valid) {
+            return;
+        }
+
+        try {
+            const response = await fetch('/your-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                console.log(response)
+            } else {
+                console.log('Ошибка')
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            alert('Ошибка при отправке формы.');
+        }
     };
 
     const items = [
@@ -221,29 +292,49 @@ export const GeneralPage = () => {
                 </div>
                 <div className={styles.content__sixth_block} id='sixthBlock'>
                     <h2>Отправь форму</h2>
-                    <div className={styles.content__sixth_block_inputs}>
-                        <input 
-                            className={styles.content__sixth_block__text_input}
-                            placeholder='Имя'
-                            value={formData.name}
-                            onChange={handleInputChange}
-                        />
-                        <input 
-                            className={styles.content__sixth_block__text_input}
-                            placeholder='Телефон'
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className={styles.content__sixth_block_inputs}>
-                        <div className={styles.content__sixth_block__checkbox}>
-                            <input type="checkbox" name="" id="" />
-                            <p>Согласен, отказываюсь</p>
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles.content__sixth_block_inputs}>
+                            <div>
+                                <input 
+                                    className={styles.content__sixth_block__text_input}
+                                    placeholder='Имя'
+                                    type='text'
+                                    name='name'
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                />
+                                {errors.name && <p className={styles.error}>{errors.name}</p>}
+                            </div>
+                            <div>
+                                <input 
+                                    className={styles.content__sixth_block__text_input}
+                                    placeholder='Телефон'
+                                    type='text'
+                                    name='phone'
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                />
+                                {errors.phone && <p className={styles.error}>{errors.phone}</p>}
+                            </div>
                         </div>
-                        <div className={styles.content__sixth_block__button}>
-                            <h5>Отправить</h5>
+                        <div className={styles.content__sixth_block_inputs}>
+                            <div className={styles.content__sixth_block__checkbox}>
+                                <input
+                                    type="checkbox"
+                                    checked={isChecked}
+                                    onChange={handleCheckboxChange}
+                                />
+                                <p>Согласен, отказываюсь</p>
+                                {errors.checkbox && <p className={styles.error}>{errors.checkbox}</p>}
+                            </div>
+                            <button
+                                type="submit"
+                                className={styles.content__sixth_block__button}
+                            >
+                                <h5>Отправить</h5>
+                            </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div className={styles.content__seventh_block}>
                     <p>© 2021 Лаборатория интернет</p>

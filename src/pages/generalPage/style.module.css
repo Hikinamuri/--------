@@ -21,6 +21,14 @@ html {
     width: 0;
 }
 
+.error {
+    position: absolute;
+    color: red;
+    top: 65px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 h1 {
     padding: 0;
     margin: 0;
@@ -389,6 +397,14 @@ h1 {
 .content__sixth_block {
     width: 60%;
     padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content__sixth_block form {
+    width: 70%;
+    
 }
 
 .content__sixth_block h2 {
@@ -399,16 +415,21 @@ h1 {
 }
 
 .content__sixth_block_inputs {
-    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: relative;
     gap: 32px;
     padding-bottom: 30px;
 }
 
+.content__sixth_block_inputs div {
+    width: 100%;
+}
+
 .content__sixth_block__text_input {
     display: flex;
-    width: 40%;
+    width: 100%;
     background-color: #F6F8FA;
     color: #5E646A;
     align-items: center;
@@ -432,6 +453,7 @@ h1 {
 
 .content__sixth_block__checkbox {
     display: flex;
+    position: relative;
     align-items: center;
     text-align: center;
     width: 40%;
@@ -519,7 +541,8 @@ h1 {
     .content__second_block, 
     .content__fifth_block__infoItems,
     .content__third_block__carousel,
-    .content__sixth_block {
+    .content__sixth_block,
+    .content__sixth_block form  {
         width: 80%
     }
 }
@@ -540,6 +563,10 @@ h1 {
 @media screen and (max-width: 1150px) {
     .general__main_info {
         width: 70%;
+    }
+
+    .content__sixth_block form {
+        width: 100%;
     }
 
     .general__navbar {
@@ -611,7 +638,7 @@ h1 {
     }
 
     .content__sixth_block {
-        width: 100%;
+        width: 95%;
     }
     
     .hamburger_menu {
@@ -695,6 +722,10 @@ h1 {
         div {
             width: 100%;
         }
+    }
+
+    .content__sixth_block__button {
+        width: 100% !important;
     }
 }
 
@@ -794,5 +825,15 @@ h1 {
         }
     }
 
-    
+    .content__sixth_block__checkbox {
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .content__sixth_block {
+        h2 {
+            font-size: 24px;
+        }
+    }
 }
