@@ -9,12 +9,8 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const CompressionPlugin = require("compression-webpack-plugin");
 
 
-let mode = 'development';
+let mode = 'production';
 let target = 'web';
-// if (mode === 'production') {
-//   mode = 'production';
-//   target = 'browserslist';
-// }
 
 const plugins = [
   new HtmlWebpackPlugin({
