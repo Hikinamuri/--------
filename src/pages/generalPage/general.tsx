@@ -13,6 +13,7 @@ import man from '../../assets/img/man.png';
 import { Carousel } from '../../components/carousel/index';
 import { Faq }  from '../../components/faq/index';
 import { InfoItem } from '../../components/infoItem/index';
+import { Link } from 'react-router-dom';
 
 const styles = require('./style.module.css');
 
@@ -179,10 +180,10 @@ export const GeneralPage = () => {
                         <h5>testLab</h5>
                     </div>
                     <div className={styles.general__navbar__buttons}>
-                        <a href='#firstBlock'>Как это работает</a>
-                        <a href='#thirdBlock'>3-й блок</a>
-                        <a href='#fourthBlock'>Вопросы и ответы</a>
-                        <a href='#sixthBlock'>Форма</a>
+                        <Link to='#firstBlock'>Как это работает</Link>
+                        <Link to='#thirdBlock'>3-й блок</Link>
+                        <Link to='#fourthBlock'>Вопросы и ответы</Link>
+                        <Link to='#sixthBlock'>Форма</Link>
                     </div>
                     <div className={`${styles.hamburger_menu} ${isMobileMenuOpen ? styles.open : ''}`} onClick={toggleMobileMenu}>
                         <div className={`${styles.icon} ${styles.hamburger}`}>⚌</div>
@@ -202,19 +203,19 @@ export const GeneralPage = () => {
                             </div>
                         </div>
                         <div>
-                            <a onClick={closeMobileMenu} href='#firstBlock'>Как это работает</a>
+                            <Link to='#firstBlock' onClick={closeMobileMenu}>Как это работает</Link>
                             <p className={styles.arrow}></p>
                         </div>
                         <div>
-                            <a onClick={closeMobileMenu} href='#thirdBlock'>3-й блок</a>
+                            <Link to='#thirdBlock' onClick={closeMobileMenu}>3-й блок</Link>
                             <p className={styles.arrow}></p>
                         </div>
                         <div>
-                            <a onClick={closeMobileMenu}href='#fourthBlock'>Вопросы и ответы</a>
+                            <Link to='#fourthBlock' onClick={closeMobileMenu}>Вопросы и ответы</Link>
                             <p className={styles.arrow}></p>
                         </div>
                         <div>
-                            <a onClick={closeMobileMenu}href='#sixthBlock'>Форма</a>
+                            <Link to='#sixthBlock' onClick={closeMobileMenu}>Форма</Link>
                             <p className={styles.arrow}></p>
                         </div>
                     </div>
